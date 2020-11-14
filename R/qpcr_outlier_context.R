@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param raw_data
+#' @param clean_data
+#' @param cq_values
+#' @param tech_rep
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qpcr_outlier_context <- function(raw_data, clean_data, cq_values, tech_rep, ...){
   #turn some values into strings for joining tables
   dots <- names(enquos(..., .named = TRUE))

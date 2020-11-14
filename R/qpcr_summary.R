@@ -1,3 +1,13 @@
+#' Title
+#'
+#' @param data
+#' @param to_summarise
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qpcr_summary <- function(data, to_summarise, ...){
   summary <- data %>%
     group_by(...) %>%

@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param .data
+#' @param dcq
+#' @param treatment
+#' @param untreated
+#' @param primer_pair
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, primer_pair){
   #to do: check inputs. must be dcq values.
   primer_join <- names(enquos(primer_pair, .named = TRUE))

@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param .data
+#' @param cq
+#' @param primer_pair
+#' @param housekeeping
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qpcr_dcq <- function(.data, cq, primer_pair, housekeeping, ...){
   # to do: add if statements to check input. no column called cq etc.
   dots <- names(enquos(..., .named = TRUE))

@@ -1,3 +1,24 @@
+#' Remove outliers
+#'
+#' This function removes outliers from technical qPCR replicates.
+#' These outliers can occur thru inaccurate pipetting, pipetting in the wrong well, seal detachment, etc.
+#' The function removes them based on the deviation from the median value, using the following rules:
+#'
+#' 1. If only one Cq value is present (i.e. the other replicates failed to produce a Cq value), it will be removed.
+#' 2. If only two Cq values are present, they need to be less than a threshold apart.
+#' 3. For three or more technical replicates:
+#'    a. If the absolute distance between a Cq value and the median Cq is greater than a set threshold, than this value will be removed.
+#'    b. If all Cq values within a technical replicate are more than a threshold apart, they will all be removed.
+#'
+#' @param .data
+#' @param cq
+#' @param threshold
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qpcr_clean <- function(.data, cq, threshold, ...){
   # to do: add if statements for errors. no column called cq etc.
   dots <- names(enquos(..., .named = TRUE))
