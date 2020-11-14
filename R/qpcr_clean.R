@@ -21,31 +21,31 @@
 #' @examples
 qpcr_clean <- function(.data, cq, threshold, ...){
   # to do: add if statements for errors. no column called cq etc.
-  dots <- names(enquos(..., .named = TRUE))
+  dots <- base::names(rlang::enquos(..., .named = TRUE))
 
   median_cq <- .data %>%
-    group_by(...) %>%
-    summarise(median_cq = median({{cq}}, na.rm = TRUE), #calculate the median cq value
-              count = sum(!is.na({{cq}}))) %>% #count the amount of techreps with a cq value
-    ungroup()
+    dplyr::group_by(...) %>%
+    dplyr::summarise(median_cq = stats::median({{cq}}, na.rm = TRUE), #calculate the median cq value
+              count = base::sum(!is.na({{cq}}))) %>% #count the amount of techreps with a cq value
+    dplyr::ungroup()
 
   dev_test <- .data %>%
-    full_join(median_cq, by = dots) %>%
-    filter(count > 1) %>% #take out tech reps with only 1 value
-    mutate(distance_med = abs({{cq}} - median_cq)) %>%  #calculate deviation from median
-    mutate(keep = if_else(count == 2,
-                          if_else(distance_med*2 < threshold, TRUE, FALSE),
-                          if_else(distance_med   < threshold, TRUE, FALSE)))
+    dplyr::full_join(median_cq, by = dots) %>%
+    dplyr::filter(count > 1) %>% #take out tech reps with only 1 value
+    dplyr::mutate(distance_med = base::abs({{cq}} - median_cq)) %>%  #calculate deviation from median
+    dplyr::mutate(keep = dplyr::if_else(count == 2,
+                                        dplyr::if_else(distance_med*2 < threshold, TRUE, FALSE),
+                                        dplyr::if_else(distance_med   < threshold, TRUE, FALSE)))
 
   count_true <- dev_test %>%
-    group_by(...) %>%
-    summarise(count_keep = sum(keep, na.rm = TRUE)) %>%
-    ungroup()
+    dplyr::group_by(...) %>%
+    dplyr::summarise(count_keep = base::sum(keep, na.rm = TRUE)) %>%
+    dplyr::ungroup()
 
   clean_data <- dev_test %>%
-    full_join(count_true, by = dots) %>%
-    filter(count_keep > 1, #remove samples where all are more than the threshold apart
+    dplyr::full_join(count_true, by = dots) %>%
+    dplyr::filter(count_keep > 1, #remove samples where all are more than the threshold apart
            keep == TRUE) %>% #remove all other outliers
-    select(-(median_cq:count_keep)) #remove the now unnecessary columns
+    dplyr::select(-(median_cq:count_keep)) #remove the now unnecessary columns
   clean_data
 }

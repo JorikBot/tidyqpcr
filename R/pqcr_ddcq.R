@@ -15,17 +15,17 @@
 #' @examples
 qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, primer_pair){
   #to do: check inputs. must be dcq values.
-  primer_join <- names(enquos(primer_pair, .named = TRUE))
+  primer_join <- base::names(rlang::enquos(primer_pair, .named = TRUE))
 
   dcq_ctrl <- .data %>%
-    filter({{treatment}} == untreated) %>%
-    group_by({{primer_pair}}) %>%
-    summarise(dcq_ctrl = mean({{dcq}}, na.rm = TRUE))
+    dplyr::filter({{treatment}} == untreated) %>%
+    dplyr::group_by({{primer_pair}}) %>%
+    dplyr::summarise(dcq_ctrl = base::mean({{dcq}}, na.rm = TRUE))
 
   ddcq <- .data %>%
-    filter(treatment != untreated) %>%
-    inner_join(dcq_ctrl, by = primer_join) %>%
-    mutate(ddcq = {{dcq}} - dcq_ctrl,
-           fold_change = 2^-ddcq)
+    dplyr::filter(treatment != untreated) %>%
+    dplyr::inner_join(dcq_ctrl, by = primer_join) %>%
+    dplyr::mutate(ddcq = {{dcq}} - dcq_ctrl,
+                         fold_change = 2^-ddcq)
   ddcq
 }
