@@ -1,4 +1,6 @@
-#' Title
+#' Calculate dCq values
+#'
+#' This function subtracts the housekeeping gene Cq values from the experimental genes Cq values.
 #'
 #' @param .data
 #' @param cq

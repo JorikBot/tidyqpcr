@@ -1,4 +1,6 @@
-#' Title
+#' Calculate mean and sd
+#'
+#' This function calculates the mean and standard deviation.
 #'
 #' @param data
 #' @param to_summarise

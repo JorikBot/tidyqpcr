@@ -1,4 +1,7 @@
-#' Title
+#' Calculate ddCq values
+#'
+#' This function subtracts the dCq control from the dCq treatments.
+#' It also calculates the fold change.
 #'
 #' @param .data
 #' @param dcq

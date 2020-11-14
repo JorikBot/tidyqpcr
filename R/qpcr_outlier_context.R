@@ -1,4 +1,8 @@
-#' Title
+#' Show outlier context
+#'
+#' Shows all the technical replicates that contain at least one outlier.
+#' This function takes the raw data and the output from qpcr_clean() as input.
+#'
 #'
 #' @param raw_data
 #' @param clean_data
