@@ -1,15 +1,14 @@
 Package: tidyqpcr
-Title: What the Package Does (One Line, Title Case)
+Title: Package for tidy qPCR analysis
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Jorik",
+           family = "Bot",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "jorikbot@gmail.com")
+Description: This package contains functions to clean, average and analyse
+  qPCR data. Input is expected to be in the tidy data format, output is also tidy.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
