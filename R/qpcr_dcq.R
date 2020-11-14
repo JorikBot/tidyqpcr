@@ -8,7 +8,7 @@
 #' @param housekeeping
 #' @param ...
 #'
-#' @return
+#' @return A tibble
 #' @export
 #'
 #' @examples

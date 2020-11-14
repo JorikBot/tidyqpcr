@@ -10,7 +10,7 @@
 #' @param tech_rep
 #' @param ...
 #'
-#' @return
+#' @return A tibble
 #' @export
 #'
 #' @examples

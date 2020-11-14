@@ -9,7 +9,7 @@
 #' @param cq
 #' @param ...
 #'
-#' @return
+#' @return A tibble
 #' @export
 #'
 #' @examples

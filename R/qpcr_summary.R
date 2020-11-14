@@ -6,7 +6,7 @@
 #' @param to_summarise
 #' @param ...
 #'
-#' @return
+#' @return A tibble
 #' @export
 #'
 #' @examples

@@ -9,7 +9,7 @@
 #' @param untreated
 #' @param primer_pair
 #'
-#' @return
+#' @return A tibble
 #' @export
 #'
 #' @examples

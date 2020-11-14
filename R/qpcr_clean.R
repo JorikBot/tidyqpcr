@@ -15,7 +15,7 @@
 #' @param threshold
 #' @param ...
 #'
-#' @return
+#' @return A tibble
 #' @export
 #'
 #' @examples
