@@ -20,13 +20,16 @@
 #'
 #' @examples
 qpcr_clean <- function(.data, cq, threshold, ...){
+  #to resolve note
+  count <- distance_med <- keep <- count_keep <- NULL
+
   # to do: add if statements for errors. no column called cq etc.
   dots <- base::names(rlang::enquos(..., .named = TRUE))
 
   median_cq <- .data %>%
     dplyr::group_by(...) %>%
     dplyr::summarise(median_cq = stats::median({{cq}}, na.rm = TRUE), #calculate the median cq value
-              count = base::sum(!is.na({{cq}}))) %>% #count the amount of techreps with a cq value
+                     count = base::sum(!is.na({{cq}}))) %>% #count the amount of techreps with a cq value
     dplyr::ungroup()
 
   dev_test <- .data %>%
