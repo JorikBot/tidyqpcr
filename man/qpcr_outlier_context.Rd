@@ -10,7 +10,7 @@ qpcr_outlier_context(raw_data, clean_data, cq_values, tech_rep, ...)
 \item{...}{}
 }
 \value{
-
+A tibble
 }
 \description{
 Shows all the technical replicates that contain at least one outlier.

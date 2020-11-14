@@ -10,7 +10,7 @@ qpcr_dcq(.data, cq, primer_pair, housekeeping, ...)
 \item{...}{}
 }
 \value{
-
+A tibble
 }
 \description{
 This function subtracts the housekeeping gene Cq values from the experimental genes Cq values.

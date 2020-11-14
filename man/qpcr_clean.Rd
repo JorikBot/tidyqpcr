@@ -10,7 +10,7 @@ qpcr_clean(.data, cq, threshold, ...)
 \item{...}{}
 }
 \value{
-
+A tibble
 }
 \description{
 This function removes outliers from technical qPCR replicates.

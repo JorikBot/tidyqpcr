@@ -10,7 +10,7 @@ qpcr_ddcq(.data, dcq = dcq, treatment, untreated, primer_pair)
 \item{primer_pair}{}
 }
 \value{
-
+A tibble
 }
 \description{
 This function subtracts the dCq control from the dCq treatments.

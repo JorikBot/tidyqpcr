@@ -10,7 +10,7 @@ qpcr_summary(data, to_summarise, ...)
 \item{...}{}
 }
 \value{
-
+A tibble
 }
 \description{
 This function calculates the mean and standard deviation.

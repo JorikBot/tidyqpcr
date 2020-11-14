@@ -10,7 +10,7 @@ qpcr_avg_techrep(.data, cq, ...)
 \item{...}{}
 }
 \value{
-
+A tibble
 }
 \description{
 This function calculates the average of every technical replicate.
