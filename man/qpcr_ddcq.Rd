@@ -7,12 +7,28 @@
 qpcr_ddcq(.data, dcq = dcq, treatment, untreated, primer_pair)
 }
 \arguments{
-\item{primer_pair}{}
+\item{.data}{The dataset containing the dCq values.}
+
+\item{dcq}{Give the name of the column containing the dCq values. If you used
+the qpcr_dcq function to create the dataset you don't need to use this
+argument.}
+
+\item{treatment}{Tells the function the name of the column containing the
+treatment information. This function cannot deal with multiple treatment
+variables yet, for example if you have different additives and timepoints!
+In this case I would calculate the ddCq for each additive separately, by
+separating the dataset per additive using dplyr::filter.}
+
+\item{untreated}{Give the value in the treatment column that corresponds with
+you untreated control samples.}
+
+\item{primer_pair}{Give the column name of the column that indicates which
+genes were targeted for PCR.}
 }
 \value{
 A tibble
 }
 \description{
-This function subtracts the dCq control from the dCq treatments.
-It also calculates the fold change.
+This function subtracts the dCq control from the dCq treatments. It also
+calculates the fold change.
 }

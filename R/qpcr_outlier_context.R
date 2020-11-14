@@ -4,11 +4,15 @@
 #' This function takes the raw data and the output from qpcr_clean() as input.
 #'
 #'
-#' @param raw_data
-#' @param clean_data
-#' @param cq_values
-#' @param tech_rep
-#' @param ...
+#' @param raw_data Here you supply the raw unfiltered data.
+#' @param clean_data Here you supply the cleaned data from the qpcr_clean
+#'   function.
+#' @param cq_values Give name of the column containing the cq values.
+#' @param tech_rep Give the name of the column containing the technical
+#'   replicate information.
+#' @param ... All other column names, excluding the columns containing the Cq
+#'   values or technical replicates. Give them unquoted and separated by a
+#'   comma.
 #'
 #' @return A tibble
 #' @export

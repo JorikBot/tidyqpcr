@@ -7,14 +7,20 @@
 qpcr_avg_techrep(.data, cq, ...)
 }
 \arguments{
-\item{...}{}
+\item{.data}{The name of your (cleaned) dataset.}
+
+\item{cq}{The name of the column containing the Cq values.}
+
+\item{...}{All other column names, excluding the columns containing the Cq
+values or technical replicates. Give them unquoted and separated by a
+comma.}
 }
 \value{
 A tibble
 }
 \description{
-This function calculates the average of every technical replicate.
-na.rm is set at TRUE by default.
+This function calculates the average of every technical replicate. na.rm is
+set at TRUE by default.
 }
 \details{
 To do: control na.rm from funcion.

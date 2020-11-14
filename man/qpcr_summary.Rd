@@ -7,7 +7,13 @@
 qpcr_summary(data, to_summarise, ...)
 }
 \arguments{
-\item{...}{}
+\item{data}{The dataset you want to summarize, a tibble.}
+
+\item{to_summarise}{The column you want to apply the function to, for example
+the fold change values.}
+
+\item{...}{The variables you want to group your data by. Mean and SD will be
+calculated for every unique combination of these variables.}
 }
 \value{
 A tibble

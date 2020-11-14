@@ -1,12 +1,17 @@
 #' Calculate dCq values
 #'
-#' This function subtracts the housekeeping gene Cq values from the experimental genes Cq values.
+#' This function subtracts the housekeeping gene Cq values from the experimental
+#' genes Cq values.
 #'
-#' @param .data
-#' @param cq
-#' @param primer_pair
-#' @param housekeeping
-#' @param ...
+#' @param .data The name of the dataset containing the average Cq values.
+#' @param cq Give the name of the column containing the (averaged) Cq values. If
+#'   you used the qpcr_avg_techrep function this column is called 'cq'.
+#' @param primer_pair Supplies the name of the column that denotes which gene
+#'   was the target of the PCR.
+#' @param housekeeping Give the value of your housekeeping gene, in quotes, as
+#'   it occurs in your primer_pair column.
+#' @param ... All other column names excluding columns for: cq values, technical
+#'   replicates and primers used.
 #'
 #' @return A tibble
 #' @export

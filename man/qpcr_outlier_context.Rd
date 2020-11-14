@@ -7,7 +7,19 @@
 qpcr_outlier_context(raw_data, clean_data, cq_values, tech_rep, ...)
 }
 \arguments{
-\item{...}{}
+\item{raw_data}{Here you supply the raw unfiltered data.}
+
+\item{clean_data}{Here you supply the cleaned data from the qpcr_clean
+function.}
+
+\item{cq_values}{Give name of the column containing the cq values.}
+
+\item{tech_rep}{Give the name of the column containing the technical
+replicate information.}
+
+\item{...}{All other column names, excluding the columns containing the Cq
+values or technical replicates. Give them unquoted and separated by a
+comma.}
 }
 \value{
 A tibble

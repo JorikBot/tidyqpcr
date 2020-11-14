@@ -7,22 +7,37 @@
 qpcr_clean(.data, cq, threshold, ...)
 }
 \arguments{
-\item{...}{}
+\item{.data}{The name of the data you want to use.}
+
+\item{cq}{The name of the column containing the Cq values.}
+
+\item{threshold}{The maximum deviation from the median.}
+
+\item{...}{Finally, the function needs the names of all other columns that
+are not the Cq values or denote technical replicates. These will be used to
+make groups, so calculations will be made for each unique combination of
+variables. Give them unquoted and separated by a comma.}
 }
 \value{
 A tibble
 }
 \description{
-This function removes outliers from technical qPCR replicates.
-These outliers can occur thru inaccurate pipetting, pipetting in the wrong well, seal detachment, etc.
-The function removes them based on the deviation from the median value, using the following rules:
+This function removes outliers from technical qPCR replicates. These outliers
+can occur thru inaccurate pipetting, pipetting in the wrong well, seal
+detachment, etc. The function removes them based on the deviation from the
+median value, using the following rules:
 }
 \details{
 \enumerate{
-\item If only one Cq value is present (i.e. the other replicates failed to produce a Cq value), it will be removed.
-\item If only two Cq values are present, they need to be less than a threshold apart.
-\item For three or more technical replicates:
-a. If the absolute distance between a Cq value and the median Cq is greater than a set threshold, than this value will be removed.
-b. If all Cq values within a technical replicate are more than a threshold apart, they will all be removed.
+\item If only one Cq value is present (i.e. the other replicates failed to
+produce a Cq value), it will be removed.
+\item If only two Cq values are
+present, they need to be less than a threshold apart.
+\item For three or more
+technical replicates:
+a. If the absolute distance between a Cq value and the median Cq is
+greater than a set threshold, than this value will be removed.
+b. If all Cq values within a technical replicate are more than a threshold
+apart, they will all be removed.
 }
 }
