@@ -17,18 +17,18 @@
 #' @export
 #'
 #' @examples
-qpcr_dcq <- function(.data, cq, primer_pair, housekeeping, ...){
+qpcr_dcq <- function(.data, cq, primer_pair, housekeeping, ...) {
   # to do: add if statements to check input. no column called cq etc.
   dots <- base::names(rlang::enquos(..., .named = TRUE))
 
   cq_hk <- .data %>%
-    dplyr::filter({{primer_pair}} == housekeeping) %>%
-    dplyr::mutate(cq_hk = {{cq}}) %>%
+    dplyr::filter({{ primer_pair }} == housekeeping) %>%
+    dplyr::mutate(cq_hk = {{ cq }}) %>%
     dplyr::select(..., cq_hk)
 
   dcq_values <- .data %>%
-    dplyr::filter({{primer_pair}} != housekeeping) %>%
+    dplyr::filter({{ primer_pair }} != housekeeping) %>%
     dplyr::inner_join(cq_hk, by = dots) %>%
-    dplyr::mutate(dcq = {{cq}} - cq_hk)
+    dplyr::mutate(dcq = {{ cq }} - cq_hk)
   dcq_values
 }

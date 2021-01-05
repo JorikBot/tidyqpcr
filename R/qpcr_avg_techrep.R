@@ -15,9 +15,9 @@
 #' @export
 #'
 #' @examples
-qpcr_avg_techrep <- function(.data, cq, ...){
+qpcr_avg_techrep <- function(.data, cq, ...) {
   .data %>%
     dplyr::group_by(...) %>%
-    dplyr::summarise(cq = mean({{cq}}, na.rm = TRUE)) %>%
+    dplyr::summarise(cq = mean({{ cq }}, na.rm = TRUE)) %>%
     dplyr::ungroup()
 }
