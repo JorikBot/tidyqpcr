@@ -1,5 +1,5 @@
 Package: tidyqpcr
-Title: Package for tidy qPCR analysis
+Title: Function for tidy ddCt qPCR analysis
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jorik",
@@ -7,7 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jorikbot@gmail.com")
 Description: This package contains functions to clean, average and analyse
-  qPCR data. Input is expected to be in the tidy data format, output is also tidy.
+  qPCR data using the ddCq method. Input is expected to be in the tidy 
+  data format, output is also tidy.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
