@@ -22,7 +22,9 @@
 #'   denote technical replicates. They will be used to make groups, so
 #'   calculations will be made for each unique combination of variables.
 #'
-#' @return A tibble
+#' @return Returns the same type as the input (e.g. a data frame or tibble).
+#'   Rows that are deemed outliers are removed from the output. If you want to
+#'   inspect these rows see \code{\link{qpcr_outlier_context}}.
 #' @export
 #'
 #' @examples

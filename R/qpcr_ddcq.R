@@ -18,16 +18,20 @@
 #'   \code{filter}.
 #' @param untreated Quoted expression. Give the value in the treatment column
 #'   that corresponds with you untreated control samples.
-#' @param pcr_target Unquoted expression. Give the name of the column
-#'   that indicates which genes were targeted for PCR.
+#' @param pcr_target Unquoted expression. Give the name of the column that
+#'   indicates which genes were targeted for PCR.
 #'
-#' @return A tibble
+#' @return Returns the same type as the input (e.g. a data frame or tibble).
+#'   Three new columns are created. First, the dCq values of the untreated
+#'   samples are averaged an moved to their own column. Second, the ddCq values
+#'   are calculated and stored in column "ddcq". Third, the fold change is
+#'   calculated and stored in column "fold_change".
 #' @export
 #'
 #' @examples
 qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, pcr_target) {
   # to do: check inputs. must be dcq values.
-  primer_join <- base::names(rlang::enquos(pcr_target, .named = TRUE))
+  pcr_join <- base::names(rlang::enquos(pcr_target, .named = TRUE))
 
   dcq_ctrl <- .data %>%
     dplyr::filter({{ treatment }} == untreated) %>%
@@ -36,7 +40,7 @@ qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, pcr_target) {
 
   ddcq <- .data %>%
     dplyr::filter(treatment != untreated) %>%
-    dplyr::inner_join(dcq_ctrl, by = primer_join) %>%
+    dplyr::inner_join(dcq_ctrl, by = pcr_join) %>%
     dplyr::mutate(
       ddcq = {{ dcq }} - dcq_ctrl,
       fold_change = 2^-ddcq

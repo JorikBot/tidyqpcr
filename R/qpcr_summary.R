@@ -10,7 +10,9 @@
 #'   The variables you want to group your data by. Mean and SD will be
 #'   calculated for every unique combination of these variables.
 #'
-#' @return A tibble
+#' @return Returns the same type as the input (e.g. a data frame or tibble).
+#'   Returns all columns supplied in ..., column "mean" containing the mean, and
+#'   column "sd" containing the standard deviation.
 #' @export
 #'
 #' @examples

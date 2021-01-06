@@ -12,7 +12,9 @@
 #'   combination of values in the supplied columns. Be sure to exclude the
 #'   columns containing the Cq values or technical replicates.
 #'
-#' @return A tibble
+#' @return Returns the same type as the input (e.g. a data frame or tibble). All
+#'   columns supplied in ... will be returned. Creates a new column for the
+#'   averaged Cq values with the name "cq".
 #' @export
 #'
 #' @examples
