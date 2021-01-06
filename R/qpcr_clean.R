@@ -1,28 +1,26 @@
 #' Remove outliers
 #'
-#' This function removes outliers from technical qPCR replicates. These outliers
-#' can occur thru inaccurate pipetting, pipetting in the wrong well, seal
-#' detachment, etc. The function removes them based on the deviation from the
-#' median value, using the following rules:
+#' \code{qpcr_clean} removes outliers from technical qPCR replicates. These
+#' outliers can occur because of inaccurate pipetting, pipetting in the wrong
+#' well, seal detachment, etc. The function removes them based on the deviation
+#' from the median value, using the following rules:
 #'
 #' 1. If only one Cq value is present (i.e. the other replicates failed to
-#' produce a Cq value), it will be removed.
-#' 2. If only two Cq values are
-#' present, they need to be less than a threshold apart.
-#' 3. For three or more
-#' technical replicates:
-#'    a. If the absolute distance between a Cq value and the median Cq is
-#'    greater than a set threshold, than this value will be removed.
-#'    b. If all Cq values within a technical replicate are more than a threshold
-#'    apart, they will all be removed.
+#' produce a Cq value), it will be removed. 2. If only two Cq values are
+#' present, they need to be less than a threshold apart. 3. For three or more
+#' technical replicates: a. If the absolute distance between a Cq value and the
+#' median Cq is greater than a set threshold, than this value will be removed.
+#' b. If all Cq values within a technical replicate are more than a threshold
+#' apart, they will all be removed.
 #'
-#' @param .data The name of the data you want to use.
-#' @param cq The name of the column containing the Cq values.
-#' @param threshold The maximum deviation from the median.
-#' @param ... Finally, the function needs the names of all other columns that
-#'   are not the Cq values or denote technical replicates. These will be used to
-#'   make groups, so calculations will be made for each unique combination of
-#'   variables. Give them unquoted and separated by a comma.
+#' @param .data A data frame or tibble.
+#' @param cq Unquoted expression. The name of the column containing the Cq
+#'   values.
+#' @param threshold A numeric. The maximum allowed deviation from the median.
+#' @param ... Tidy-select. One or more unquoted expressions separated by commas.
+#'   These are the names of all other columns that are not the Cq values or
+#'   denote technical replicates. They will be used to make groups, so
+#'   calculations will be made for each unique combination of variables.
 #'
 #' @return A tibble
 #' @export

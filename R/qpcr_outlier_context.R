@@ -1,18 +1,22 @@
-#' Show outlier context
+#' Show replicates that contain outliers
 #'
-#' Shows all the technical replicates that contain at least one outlier.
-#' This function takes the raw data and the output from qpcr_clean() as input.
+#' \code{qpcr_outlier_context} shows all the technical replicates that contain
+#' at least one outlier. This function takes the raw data and the output from
+#' \code{qpcr_clean} as input.
 #'
+#' To Do: ... can be removed. What happens when no tech rep column?
 #'
-#' @param raw_data Here you supply the raw unfiltered data.
-#' @param clean_data Here you supply the cleaned data from the qpcr_clean
-#'   function.
-#' @param cq_values Give name of the column containing the cq values.
-#' @param tech_rep Give the name of the column containing the technical
-#'   replicate information.
-#' @param ... All other column names, excluding the columns containing the Cq
-#'   values or technical replicates. Give them unquoted and separated by a
-#'   comma.
+#' @param raw_data A data frame or tibble. Here you supply the raw unfiltered
+#'   data.
+#' @param clean_data A data frame or tibble. Here you supply the cleaned data
+#'   from the qpcr_clean function.
+#' @param cq_values Unquoted expression. Give name of the column containing the
+#'   cq values.
+#' @param tech_rep Unquoted expression. Give the name of the column containing
+#'   the technical replicate information.
+#' @param ... Tidy-select. One or more unquoted expressions separated by commas.
+#'   All other column names, excluding the columns containing the Cq values or
+#'   technical replicates.
 #'
 #' @return A tibble
 #' @export
