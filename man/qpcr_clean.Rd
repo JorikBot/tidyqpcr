@@ -35,13 +35,13 @@ The rules for what is an outlier and what is not are as follows:
 \enumerate{
 \item If only one Cq value is present (i.e. the other replicates failed to
 produce a Cq value), it will be removed.
-\item If only two Cq values are present, they need to be less than the threshold apart.
+\item If only two Cq values are present, they need to be less than the
+threshold apart.
 \item For three or more technical replicates:
 \itemize{
-\item If the absolute distance between a Cq value and the
-median Cq is greater than the set threshold, than this value will be removed.
-\item If all Cq values within a technical replicate are more than the threshold
-apart, they will all be removed.
-}
-}
+\item If the absolute distance between a Cq value and the median Cq
+is greater than the set threshold, than this value will be
+removed.
+\item If all Cq values within a technical replicate are more than
+the threshold apart, they will all be removed. } }
 }
