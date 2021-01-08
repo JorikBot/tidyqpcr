@@ -1,9 +1,9 @@
-#' Example small qPCR data set
+#' Example small cleaned qPCR data set
 #'
-#' A fictional data set of randomly generated Cq values. Contains all possible
-#' outlier cases that qpcr_clean removes.
+#' A fictional data set of randomly generated Cq values. Any outliers have been
+#' removed with \code{qpcr_clean}, using a threshold of 1.
 #'
-#' @format A tibble with 81 rows and 5 variables:
+#' @format A tibble with 69 rows and 5 variables:
 #' \describe{
 #'   \item{treatment}{Three fictional treatment conditions, where CTRL is the
 #'   negative control}
@@ -17,5 +17,4 @@
 #'   threshold}
 #'   }
 #' @source Fictional data set created in excel
-"ex_data"
-
+"ex_clean"
