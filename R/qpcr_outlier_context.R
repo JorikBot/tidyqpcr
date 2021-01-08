@@ -10,7 +10,7 @@
 #'  data.
 #'@param clean_data A data frame or tibble. Here you supply the cleaned data
 #'  from the qpcr_clean function.
-#'@param cq_values Unquoted expression. Give name of the column containing the
+#'@param cq Unquoted expression. Give name of the column containing the
 #'  cq values.
 #'@param tech_rep Unquoted expression. Give the name of the column containing
 #'  the technical replicate information.
@@ -25,7 +25,12 @@
 #'@export
 #'
 #' @examples
-qpcr_outlier_context <- function(raw_data, clean_data, cq_values, tech_rep, ...) {
+#' outlier_triplets <- qpcr_outlier_context(raw_data = fake_qpcr,
+#'                                          clean_data = clean_data,
+#'                                          cq = cq_values,
+#'                                          tech_rep = tech_rep,
+#'                                          treatment, bio_rep, primer_pair)
+qpcr_outlier_context <- function(raw_data, clean_data, cq, tech_rep, ...) {
   # turn some values into strings for joining tables
   dots <- base::names(rlang::enquos(..., .named = TRUE))
   string_tech_rep <- base::names(rlang::enquos(tech_rep, .named = TRUE))
@@ -38,11 +43,11 @@ qpcr_outlier_context <- function(raw_data, clean_data, cq_values, tech_rep, ...)
   # give outliers extra columns, all TRUE
   extra_col <- outliers %>%
     dplyr::mutate(outlier = TRUE) %>%
-    dplyr::select(-{{ cq_values }})
+    dplyr::select(-{{ cq }})
 
   # find all triplets with outliers
   triplets <- outliers %>%
-    dplyr::select(-{{ cq_values }}) %>%
+    dplyr::select(-{{ cq }}) %>%
     dplyr::select(-{{ tech_rep }}) %>%
     dplyr::left_join(raw_data, by = dots) %>%
     dplyr::distinct() %>%
