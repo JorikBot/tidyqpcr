@@ -2,29 +2,35 @@
 % Please edit documentation in R/qpcr_dcq.R
 \name{qpcr_dcq}
 \alias{qpcr_dcq}
+\alias{qpcr_dct}
+\alias{qpcr_dcp}
 \title{Calculate dCq values}
 \usage{
-qpcr_dcq(.data, cq, primer_pair, housekeeping, ...)
+qpcr_dcq(.data, cq, pcr_target, housekeeping, ...)
 }
 \arguments{
-\item{.data}{The name of the dataset containing the average Cq values.}
+\item{.data}{A data frame or tibble.}
 
-\item{cq}{Give the name of the column containing the (averaged) Cq values. If
-you used the qpcr_avg_techrep function this column is called 'cq'.}
+\item{cq}{Unquoted expression. Give the name of the column containing the
+(averaged) Cq values. If you used the qpcr_avg_techrep function this column
+is called 'cq'.}
 
-\item{primer_pair}{Supplies the name of the column that denotes which gene
-was the target of the PCR.}
+\item{pcr_target}{Unquoted expression. Supply the name of the column that
+denotes which gene was the target of the qPCR.}
 
-\item{housekeeping}{Give the value of your housekeeping gene, in quotes, as
-it occurs in your primer_pair column.}
+\item{housekeeping}{Quoted expression. Give the value of your housekeeping
+gene as it occurs in your pcr_target column.}
 
-\item{...}{All other column names excluding columns for: cq values, technical
-replicates and primers used.}
+\item{...}{Tidy-select. One or more unquoted expressions separated by commas.
+All other column names excluding columns for: cq values, technical
+replicates and PCR target.}
 }
 \value{
-A tibble
+Returns the same type as the input (e.g. a data frame or tibble).
+Creates 2 new columns. "cq_hk" moves the housekeeping Cq values into its
+own column, and "dcq" contains the calculated dCq values.
 }
 \description{
-This function subtracts the housekeeping gene Cq values from the experimental
-genes Cq values.
+\code{qpcr_dcq} subtracts the housekeeping gene Cq values from the
+experimental genes Cq values.
 }

@@ -2,22 +2,26 @@
 % Please edit documentation in R/qpcr_summary.R
 \name{qpcr_summary}
 \alias{qpcr_summary}
-\title{Calculate mean and sd}
+\title{Calculate mean and standard deviation}
 \usage{
 qpcr_summary(data, to_summarise, ...)
 }
 \arguments{
-\item{data}{The dataset you want to summarize, a tibble.}
+\item{data}{A data frame or tibble.}
 
-\item{to_summarise}{The column you want to apply the function to, for example
-the fold change values.}
+\item{to_summarise}{Unquoted expression. The column you want to apply the
+function to, for example the fold change values.}
 
-\item{...}{The variables you want to group your data by. Mean and SD will be
+\item{...}{Tidy-select. One or more unquoted expressions separated by commas.
+The variables you want to group your data by. Mean and SD will be
 calculated for every unique combination of these variables.}
 }
 \value{
-A tibble
+Returns the same type as the input (e.g. a data frame or tibble).
+Returns all columns supplied in ..., column "mean" containing the mean, and
+column "sd" containing the standard deviation.
 }
 \description{
-This function calculates the mean and standard deviation.
+\code{qpcr_summary} is a helper function used for calculating the mean and
+standard deviation.These values can then be used for plotting.
 }

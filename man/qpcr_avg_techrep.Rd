@@ -4,24 +4,26 @@
 \alias{qpcr_avg_techrep}
 \title{Average technical replicates}
 \usage{
-qpcr_avg_techrep(.data, cq, ...)
+qpcr_avg_techrep(.data, cq, na.rm = TRUE, ...)
 }
 \arguments{
-\item{.data}{The name of your (cleaned) dataset.}
+\item{.data}{A data frame or tibble.}
 
-\item{cq}{The name of the column containing the Cq values.}
+\item{cq}{Unquoted expression. The name of the column containing the Cq
+values.}
 
-\item{...}{All other column names, excluding the columns containing the Cq
-values or technical replicates. Give them unquoted and separated by a
-comma.}
+\item{...}{Tidy-select. One or more unquoted expressions separated by commas.
+All the names of columns that denote your experimental variables (and
+biological replicates). The average will be taken for every unique
+combination of values in the supplied columns. Be sure to exclude the
+columns containing the Cq values or technical replicates.}
 }
 \value{
-A tibble
+Returns the same type as the input (e.g. a data frame or tibble). All
+columns supplied in ... will be returned. Creates a new column for the
+averaged Cq values with the name "cq".
 }
 \description{
 This function calculates the average of every technical replicate. na.rm is
 set at TRUE by default.
-}
-\details{
-To do: control na.rm from funcion.
 }

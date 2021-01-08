@@ -2,29 +2,38 @@
 % Please edit documentation in R/qpcr_outlier_context.R
 \name{qpcr_outlier_context}
 \alias{qpcr_outlier_context}
-\title{Show outlier context}
+\title{Show replicates that contain outliers}
 \usage{
 qpcr_outlier_context(raw_data, clean_data, cq_values, tech_rep, ...)
 }
 \arguments{
-\item{raw_data}{Here you supply the raw unfiltered data.}
+\item{raw_data}{A data frame or tibble. Here you supply the raw unfiltered
+data.}
 
-\item{clean_data}{Here you supply the cleaned data from the qpcr_clean
-function.}
+\item{clean_data}{A data frame or tibble. Here you supply the cleaned data
+from the qpcr_clean function.}
 
-\item{cq_values}{Give name of the column containing the cq values.}
+\item{cq_values}{Unquoted expression. Give name of the column containing the
+cq values.}
 
-\item{tech_rep}{Give the name of the column containing the technical
-replicate information.}
+\item{tech_rep}{Unquoted expression. Give the name of the column containing
+the technical replicate information.}
 
-\item{...}{All other column names, excluding the columns containing the Cq
-values or technical replicates. Give them unquoted and separated by a
-comma.}
+\item{...}{Tidy-select. One or more unquoted expressions separated by commas.
+All other column names, excluding the columns containing the Cq values or
+technical replicates.}
 }
 \value{
-A tibble
+Returns the same type as the input (e.g. a data frame or tibble). Only
+the rows of technical replicate group containing at least one outlier are
+returned. The values that are deemed outliers are marked with TRUE in the
+column "outlier".
 }
 \description{
-Shows all the technical replicates that contain at least one outlier.
-This function takes the raw data and the output from qpcr_clean() as input.
+\code{qpcr_outlier_context} shows all the technical replicates that contain at
+least one outlier. This function takes the raw data and the output from
+\code{qpcr_clean} as input.
+}
+\details{
+To Do: ... can be removed. What happens when no tech rep column?
 }
