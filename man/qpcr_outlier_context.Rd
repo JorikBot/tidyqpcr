@@ -4,7 +4,7 @@
 \alias{qpcr_outlier_context}
 \title{Show replicates that contain outliers}
 \usage{
-qpcr_outlier_context(raw_data, clean_data, cq_values, tech_rep, ...)
+qpcr_outlier_context(raw_data, clean_data, cq, tech_rep, ...)
 }
 \arguments{
 \item{raw_data}{A data frame or tibble. Here you supply the raw unfiltered
@@ -13,7 +13,7 @@ data.}
 \item{clean_data}{A data frame or tibble. Here you supply the cleaned data
 from the qpcr_clean function.}
 
-\item{cq_values}{Unquoted expression. Give name of the column containing the
+\item{cq}{Unquoted expression. Give name of the column containing the
 cq values.}
 
 \item{tech_rep}{Unquoted expression. Give the name of the column containing
@@ -36,4 +36,11 @@ least one outlier. This function takes the raw data and the output from
 }
 \details{
 To Do: ... can be removed. What happens when no tech rep column?
+}
+\examples{
+outlier_triplets <- qpcr_outlier_context(raw_data = ex_data,
+                                         clean_data = ex_clean,
+                                         cq = cq_values,
+                                         tech_rep = tech_rep,
+                                         treatment, bio_rep, primer_pair)
 }

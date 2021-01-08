@@ -16,6 +16,9 @@
 #' @export
 #'
 #' @examples
+#' ex_summary <- qpcr_summary(ex_ddcq,
+#'                            to_summarise = fold_change,
+#'                            treatment, primer_pair)
 qpcr_summary <- function(data, to_summarise, ...) {
   summary <- data %>%
     dplyr::group_by(...) %>%

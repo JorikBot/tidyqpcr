@@ -1,7 +1,7 @@
 #' Average technical replicates
 #'
-#' This function calculates the average of every technical replicate. na.rm is
-#' set at TRUE by default.
+#' This function calculates the average of every technical replicate.
+#' \code{mean} function argument na.rm is set to TRUE by default.
 #'
 #' @param .data A data frame or tibble.
 #' @param cq Unquoted expression. The name of the column containing the Cq
@@ -18,9 +18,12 @@
 #' @export
 #'
 #' @examples
-qpcr_avg_techrep <- function(.data, cq, na.rm = TRUE, ...) {
+#' avg_data <- qpcr_avg_techrep(ex_clean,
+#'                              cq = cq_values,
+#'                              treatment, primer_pair, bio_rep)
+qpcr_avg_techrep <- function(.data, cq, ...) {
   .data %>%
     dplyr::group_by(...) %>%
-    dplyr::summarise(cq = mean({{ cq }}, na.rm)) %>%
+    dplyr::summarise(cq = base::mean({{ cq }}, na.rm = TRUE)) %>%
     dplyr::ungroup()
 }

@@ -40,3 +40,9 @@ calculated and stored in column "fold_change".
 \code{qpcr_ddcq} subtracts the dCq control from the dCq treatment(s). It also
 calculates the fold change.
 }
+\examples{
+ddcq_values <- qpcr_ddcq(ex_dcq,
+                         treatment = treatment,
+                         untreated = "ctrl",
+                         pcr_target = primer_pair)
+}

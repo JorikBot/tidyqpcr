@@ -25,8 +25,8 @@
 #'@export
 #'
 #' @examples
-#' outlier_triplets <- qpcr_outlier_context(raw_data = fake_qpcr,
-#'                                          clean_data = clean_data,
+#' outlier_triplets <- qpcr_outlier_context(raw_data = ex_data,
+#'                                          clean_data = ex_clean,
 #'                                          cq = cq_values,
 #'                                          tech_rep = tech_rep,
 #'                                          treatment, bio_rep, primer_pair)

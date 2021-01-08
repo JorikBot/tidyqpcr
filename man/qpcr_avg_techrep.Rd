@@ -4,7 +4,7 @@
 \alias{qpcr_avg_techrep}
 \title{Average technical replicates}
 \usage{
-qpcr_avg_techrep(.data, cq, na.rm = TRUE, ...)
+qpcr_avg_techrep(.data, cq, ...)
 }
 \arguments{
 \item{.data}{A data frame or tibble.}
@@ -24,6 +24,11 @@ columns supplied in ... will be returned. Creates a new column for the
 averaged Cq values with the name "cq".
 }
 \description{
-This function calculates the average of every technical replicate. na.rm is
-set at TRUE by default.
+This function calculates the average of every technical replicate.
+\code{mean} function argument na.rm is set to TRUE by default.
+}
+\examples{
+avg_data <- qpcr_avg_techrep(ex_clean,
+                             cq = cq_values,
+                             treatment, primer_pair, bio_rep)
 }

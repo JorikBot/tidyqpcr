@@ -34,3 +34,10 @@ own column. "dcq" contains the calculated dCq values.
 \code{qpcr_dcq} subtracts the housekeeping gene Cq values from the
 experimental genes Cq values.
 }
+\examples{
+dcq_values <- qpcr_dcq(ex_avg,
+                       cq = cq,
+                       pcr_target = primer_pair,
+                       housekeeping = "gene_hk",
+                       treatment, bio_rep)
+}

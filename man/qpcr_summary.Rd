@@ -25,3 +25,8 @@ column "sd" containing the standard deviation.
 \code{qpcr_summary} is a helper function used for calculating the mean and
 standard deviation.These values can then be used for plotting.
 }
+\examples{
+ex_summary <- qpcr_summary(ex_ddcq,
+                           to_summarise = fold_change,
+                           treatment, primer_pair)
+}

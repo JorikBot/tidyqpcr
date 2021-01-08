@@ -23,6 +23,11 @@
 #' @export
 #'
 #' @examples
+#' dcq_values <- qpcr_dcq(ex_avg,
+#'                        cq = cq,
+#'                        pcr_target = primer_pair,
+#'                        housekeeping = "gene_hk",
+#'                        treatment, bio_rep)
 qpcr_dcq <- function(.data, cq, pcr_target, housekeeping, ...) {
   # to do: add if statements to check input. no column called cq etc.
   dots <- base::names(rlang::enquos(..., .named = TRUE))

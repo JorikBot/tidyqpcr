@@ -34,6 +34,10 @@
 #' @export
 #'
 #' @examples
+#' clean_data <- qpcr_clean(ex_data,
+#'                          cq = cq_values,
+#'                          threshold = 1,
+#'                          treatment, primer_pair, bio_rep)
 qpcr_clean <- function(.data, cq, threshold, ...) {
   # to resolve note
   count <- distance_med <- keep <- count_keep <- NULL

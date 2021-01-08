@@ -29,6 +29,10 @@
 #' @export
 #'
 #' @examples
+#' ddcq_values <- qpcr_ddcq(ex_dcq,
+#'                          treatment = treatment,
+#'                          untreated = "ctrl",
+#'                          pcr_target = primer_pair)
 qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, pcr_target) {
   # to do: check inputs. must be dcq values.
   pcr_join <- base::names(rlang::enquos(pcr_target, .named = TRUE))

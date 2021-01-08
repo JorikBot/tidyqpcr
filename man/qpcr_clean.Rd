@@ -45,3 +45,9 @@ removed.
 \item If all Cq values within a technical replicate are more than
 the threshold apart, they will all be removed. } }
 }
+\examples{
+clean_data <- qpcr_clean(ex_data,
+                         cq = cq_values,
+                         threshold = 1,
+                         treatment, primer_pair, bio_rep)
+}
