@@ -1,8 +1,8 @@
 ---
-title: "tidy_qpcr_analysis"
+title: "Tidy_qpcr_analysis"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tidy_qpcr_analysis}
+  %\VignetteIndexEntry{Tidy_qpcr_analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
