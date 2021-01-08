@@ -3,15 +3,21 @@
 #' \code{qpcr_clean} removes outliers from technical qPCR replicates. These
 #' outliers can occur because of inaccurate pipetting, pipetting in the wrong
 #' well, seal detachment, etc. The function removes them based on the deviation
-#' from the median value, using the following rules:
+#' from the median Cq value. See details for exact rules of outlier removal.
 #'
-#' 1. If only one Cq value is present (i.e. the other replicates failed to
-#' produce a Cq value), it will be removed. 2. If only two Cq values are
-#' present, they need to be less than a threshold apart. 3. For three or more
-#' technical replicates: a. If the absolute distance between a Cq value and the
-#' median Cq is greater than a set threshold, than this value will be removed.
-#' b. If all Cq values within a technical replicate are more than a threshold
+#' The rules for what is an outlier and what is not are as follows:
+#' \enumerate{
+#'  \item If only one Cq value is present (i.e. the other replicates failed to
+#' produce a Cq value), it will be removed.
+#'  \item If only two Cq values are present, they need to be less than the threshold apart.
+#'  \item For three or more technical replicates:
+#'  \itemize{
+#'    \item If the absolute distance between a Cq value and the
+#' median Cq is greater than the set threshold, than this value will be removed.
+#'    \item If all Cq values within a technical replicate are more than the threshold
 #' apart, they will all be removed.
+#'   }
+#' }
 #'
 #' @param .data A data frame or tibble.
 #' @param cq Unquoted expression. The name of the column containing the Cq

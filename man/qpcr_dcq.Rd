@@ -28,7 +28,7 @@ replicates and PCR target.}
 \value{
 Returns the same type as the input (e.g. a data frame or tibble).
 Creates 2 new columns. "cq_hk" moves the housekeeping Cq values into its
-own column, and "dcq" contains the calculated dCq values.
+own column. "dcq" contains the calculated dCq values.
 }
 \description{
 \code{qpcr_dcq} subtracts the housekeeping gene Cq values from the
