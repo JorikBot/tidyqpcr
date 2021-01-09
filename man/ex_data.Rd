@@ -5,14 +5,12 @@
 \alias{ex_data}
 \title{Example small qPCR data set}
 \format{
-A tibble with 81 rows and 5 variables:
+A tibble with 81 rows and 4 variables:
 \describe{
 \item{treatment}{Three fictional treatment conditions, where CTRL is the
 negative control}
 \item{bio_rep}{Number to denote which biological replicate the value
 belongs to}
-\item{tech_rep}{Numbered technical replicates within a biological
-replicate}
 \item{primer_pair}{Three fictional genes targeted for qPCR, where gene_hk
 is the housekeeping gene}
 \item{cq_values}{Number of PCR cycles need to cross a fluorescence
