@@ -39,6 +39,11 @@
 #'                          threshold = 1,
 #'                          treatment, primer_pair, bio_rep)
 qpcr_clean <- function(.data, cq, threshold, ...) {
+  # check user input
+  if(ncol(.data) == 1)  {
+    stop("Supplied data has only 1 column. Check if your data import uses the right delimiter")
+  }
+  stopifnot(is.numeric(threshold))
   # to resolve note
   count <- distance_med <- keep <- count_keep <- NULL
 
