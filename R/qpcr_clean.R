@@ -44,6 +44,7 @@ qpcr_clean <- function(.data, cq, threshold, ...) {
     stop("Supplied data has only 1 column. Check if your data import uses the right delimiter")
   }
   stopifnot(is.numeric(threshold))
+
   # to resolve note
   count <- distance_med <- keep <- count_keep <- NULL
 

@@ -27,9 +27,6 @@ column "outlier".
 least one outlier. This function takes the raw data and the output from
 \code{qpcr_clean} as input.
 }
-\details{
-To Do: ... can be removed. What happens when no tech rep column?
-}
 \examples{
 outlier_triplets <- qpcr_outlier_context(raw_data = ex_data,
                                          clean_data = ex_clean,

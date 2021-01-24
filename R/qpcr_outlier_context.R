@@ -4,7 +4,6 @@
 #'least one outlier. This function takes the raw data and the output from
 #'\code{qpcr_clean} as input.
 #'
-#'To Do: ... can be removed. What happens when no tech rep column?
 #'
 #'@param raw_data A data frame or tibble. Here you supply the raw unfiltered
 #'  data.
