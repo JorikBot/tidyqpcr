@@ -27,6 +27,11 @@
 qpcr_dcq <- function(.data, cq, pcr_target, housekeeping) {
   # to do: add if statements to check input. no column called cq etc.
 
+  #find columns for the join
+  data_colnames <- base::colnames(.data)
+  notuse_join <- base::names(rlang::enquos(cq, pcr_target, .named = TRUE))
+  use_join <- dplyr::setdiff(data_colnames, notuse_join)
+
   cq_hk <- .data %>%
     dplyr::filter({{ pcr_target }} == housekeeping) %>%
     dplyr::rename(cq_hk = {{ cq }}) %>%
@@ -34,7 +39,7 @@ qpcr_dcq <- function(.data, cq, pcr_target, housekeeping) {
 
   dcq_values <- .data %>%
     dplyr::filter({{ pcr_target }} != housekeeping) %>%
-    dplyr::inner_join(cq_hk) %>%
+    dplyr::inner_join(cq_hk, by = use_join) %>%
     dplyr::mutate(dcq = {{ cq }} - cq_hk)
   dcq_values
 }

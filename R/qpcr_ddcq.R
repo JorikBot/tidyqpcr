@@ -34,7 +34,7 @@
 #'                          untreated = "ctrl",
 #'                          pcr_target = primer_pair)
 qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, pcr_target) {
-  # to do: check inputs. must be dcq values.
+  # to do: check inputs. Must be dcq values.
   pcr_join <- base::names(rlang::enquos(pcr_target, .named = TRUE))
 
   dcq_ctrl <- .data %>%
@@ -46,8 +46,8 @@ qpcr_ddcq <- function(.data, dcq = dcq, treatment, untreated, pcr_target) {
     dplyr::filter(treatment != untreated) %>%
     dplyr::inner_join(dcq_ctrl, by = pcr_join) %>%
     dplyr::mutate(
-      ddcq = {{ dcq }} - dcq_ctrl,
-      fold_change = 2^-ddcq
+                  ddcq = {{ dcq }} - dcq_ctrl,
+                  fold_change = 2^-ddcq
     )
   ddcq
 }
