@@ -13,9 +13,6 @@
 #'   denotes which gene was the target of the qPCR.
 #' @param housekeeping Quoted expression. Give the value of your housekeeping
 #'   gene as it occurs in your pcr_target column.
-#' @param ... Tidy-select. One or more unquoted expressions separated by commas.
-#'   All other column names excluding columns for: cq values, technical
-#'   replicates and PCR target.
 #'
 #' @return Returns the same type as the input (e.g. a data frame or tibble).
 #'   Creates 2 new columns. "cq_hk" moves the housekeeping Cq values into its
@@ -26,20 +23,18 @@
 #' dcq_values <- qpcr_dcq(ex_avg,
 #'                        cq = cq,
 #'                        pcr_target = primer_pair,
-#'                        housekeeping = "gene_hk",
-#'                        treatment, bio_rep)
-qpcr_dcq <- function(.data, cq, pcr_target, housekeeping, ...) {
+#'                        housekeeping = "gene_hk")
+qpcr_dcq <- function(.data, cq, pcr_target, housekeeping) {
   # to do: add if statements to check input. no column called cq etc.
-  dots <- base::names(rlang::enquos(..., .named = TRUE))
 
   cq_hk <- .data %>%
     dplyr::filter({{ pcr_target }} == housekeeping) %>%
-    dplyr::mutate(cq_hk = {{ cq }}) %>%
-    dplyr::select(..., cq_hk)
+    dplyr::rename(cq_hk = {{ cq }}) %>%
+    dplyr::select(! {{ pcr_target }})
 
   dcq_values <- .data %>%
     dplyr::filter({{ pcr_target }} != housekeeping) %>%
-    dplyr::inner_join(cq_hk, by = dots) %>%
+    dplyr::inner_join(cq_hk) %>%
     dplyr::mutate(dcq = {{ cq }} - cq_hk)
   dcq_values
 }

@@ -6,7 +6,7 @@
 \alias{qpcr_dcp}
 \title{Calculate dCq values}
 \usage{
-qpcr_dcq(.data, cq, pcr_target, housekeeping, ...)
+qpcr_dcq(.data, cq, pcr_target, housekeeping)
 }
 \arguments{
 \item{.data}{A data frame or tibble.}
@@ -20,10 +20,6 @@ denotes which gene was the target of the qPCR.}
 
 \item{housekeeping}{Quoted expression. Give the value of your housekeeping
 gene as it occurs in your pcr_target column.}
-
-\item{...}{Tidy-select. One or more unquoted expressions separated by commas.
-All other column names excluding columns for: cq values, technical
-replicates and PCR target.}
 }
 \value{
 Returns the same type as the input (e.g. a data frame or tibble).
@@ -38,6 +34,5 @@ experimental genes Cq values.
 dcq_values <- qpcr_dcq(ex_avg,
                        cq = cq,
                        pcr_target = primer_pair,
-                       housekeeping = "gene_hk",
-                       treatment, bio_rep)
+                       housekeeping = "gene_hk")
 }
